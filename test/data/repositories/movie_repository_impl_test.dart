@@ -118,18 +118,6 @@ void main() {
       setUp(() {
         when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
       });
-
-      test(
-          'should return remote data when the call to remote data source is successful',
-          () async {});
-
-      test(
-          'should cache data locally when the call to remote data source is successful',
-          () async {});
-
-      test(
-          'should return server failure when the call to remote data source is unsuccessful',
-          () async {});
     });
 
     group('Get Movie Detail', () {
