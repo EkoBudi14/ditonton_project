@@ -211,56 +211,6 @@ void main() {
     });
   });
 
-  group('Get Tv Detail', () {
-    final tId = 1;
-    final tTvResponse = TvModelDetail(
-      episodeRunTime: [1],
-      firstAirDate: "firstAirDate",
-      languages: ["en"],
-      name: "name",
-      originalName: "originalName",
-      numberOfEpisodes: 1,
-      numberOfSeasons: 1,
-      backdropPath: "backdropPath",
-      genres: [GenreModel(id: 1, name: 'Action')],
-      homePage: "https://google.com",
-      id: 1,
-      originalLanguage: "originalLanguage",
-      overview: "overview",
-      popularity: 1,
-      posterPath: "posterPath",
-      status: "status",
-      tagline: "tagline",
-      voteAverage: 1,
-      voteCount: 1,
-    );
-
-    test(
-        'should return Tv data when the call to remote data source is successful',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.getTvDetail(tId))
-          .thenAnswer((_) async => tTvResponse);
-      // act
-      final result = await repository.getTvDetail(tId);
-      // assert
-      verify(mockRemoteDataSource.getTvDetail(tId));
-      expect(result, equals(Right(testTvDetail)));
-    });
-
-    test(
-        'should return Server Failure when the call to remote data source is unsuccessful',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.getTvDetail(tId)).thenThrow(ServerException());
-      // act
-      final result = await repository.getTvDetail(tId);
-      // assert
-      verify(mockRemoteDataSource.getTvDetail(tId));
-      expect(result, equals(Left(ServerFailure(''))));
-    });
-  });
-
   group('Get Tv Recommendations', () {
     final tTvList = <TvModel>[];
     final tId = 1;
