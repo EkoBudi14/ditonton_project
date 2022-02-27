@@ -6,7 +6,7 @@ class TvModelDetail extends Equatable {
   TvModelDetail({
     required this.episodeRunTime,
     required this.firstAirDate,
-    required this.languages,
+    // required this.languages,
     required this.name,
     required this.originalName,
     required this.numberOfEpisodes,
@@ -29,12 +29,12 @@ class TvModelDetail extends Equatable {
   final List<GenreModel> genres;
   final String homePage;
   final String? firstAirDate;
-  final List<dynamic> episodeRunTime;
+  final List<dynamic>? episodeRunTime;
   final int id;
-  final List<dynamic> languages;
+  // final List<dynamic> languages;
   final String? name;
   final String originalLanguage;
-  final String originalName;
+  final String? originalName;
   final String overview;
   final int? numberOfEpisodes;
   final int? numberOfSeasons;
@@ -52,7 +52,7 @@ class TvModelDetail extends Equatable {
         numberOfSeasons: json["number_of_seasons"],
         episodeRunTime: json["episode_run_time"],
         firstAirDate: json["first_air_date"],
-        languages: json["languages"],
+        // languages: json["languages"],
         name: json["name"],
         genres: List<GenreModel>.from(
             json["genres"].map((x) => GenreModel.fromJson(x))),

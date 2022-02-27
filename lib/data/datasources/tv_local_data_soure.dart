@@ -7,8 +7,8 @@ abstract class TvLocalDataSource {
   Future<String> removeWatchlistTvSeries(TvTable tv);
   Future<TvTable?> getTvById(int id);
   Future<List<TvTable>> getWatchlistTv();
-  Future<void> cacheNowPlayingMovies(List<TvTable> tv);
-  Future<List<TvTable>> getCachedNowPlayingMovies();
+  Future<void> cacheNowPlayingTv(List<TvTable> tv);
+  Future<List<TvTable>> getCachedNowPlayingTv();
 }
 
 class TvLocalDataSourceImpl implements TvLocalDataSource {
@@ -28,13 +28,13 @@ class TvLocalDataSourceImpl implements TvLocalDataSource {
 
   @override
   @override
-  Future<void> cacheNowPlayingMovies(List<TvTable> tv) async {
+  Future<void> cacheNowPlayingTv(List<TvTable> tv) async {
     await databaseHelper.clearCache('now playing');
     await databaseHelper.insertCacheTransactionTv(tv, 'now playing');
   }
 
   @override
-  Future<List<TvTable>> getCachedNowPlayingMovies() async {
+  Future<List<TvTable>> getCachedNowPlayingTv() async {
     final result = await databaseHelper.getCacheMoviesTv('now playing');
     if (result.length > 0) {
       return result.map((data) => TvTable.fromMap(data)).toList();

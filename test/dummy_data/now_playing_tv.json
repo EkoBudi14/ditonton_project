@@ -1,0 +1,24 @@
+{
+    "dates": {
+        "maximum": "2022-05-23",
+        "minimum": "2022-02-25"
+    },
+    "page": 1,
+    "results": [
+        {
+            "poster_path": "/path.jpg",
+            "popularity":  47.432451,
+            "id": 31917,
+            "backdrop_path": "/path.jpg",
+            "vote_average": 7.5,
+            "overview": "Overview",
+            "first_air_date": "2010-06-08",
+            "genre_ids": [
+                18, 9648
+            ],
+            "vote_count":287,
+            "name": "Name",
+            "original_name": "Original Name"
+        }
+    ]
+}

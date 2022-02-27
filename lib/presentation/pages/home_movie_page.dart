@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
+import 'package:ditonton/presentation/pages/home_tv_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
@@ -13,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {
+  static const ROUTE_NAME = '/home';
+
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -42,10 +45,17 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               accountEmail: Text('ditonton@dicoding.com'),
             ),
             ListTile(
-              leading: Icon(Icons.movie),
-              title: Text('Movies'),
+              leading: Icon(Icons.tv),
+              title: Text('Tv Series'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, HomeTvPage.ROUTE_NAME);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.movie),
+              title: Text('Movie'),
+              onTap: () {
+                Navigator.pushNamed(context, HomeMoviePage.ROUTE_NAME);
               },
             ),
             ListTile(
@@ -66,6 +76,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ),
       ),
       appBar: AppBar(
+        leading: Icon(Icons.menu),
         title: Text('Ditonton'),
         actions: [
           IconButton(

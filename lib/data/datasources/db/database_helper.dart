@@ -22,7 +22,9 @@ class DatabaseHelper {
   }
 
   static const String _tblWatchlist = 'watchlist';
+  static const String _tblCacheTv = 'cacheTv';
   static const String _tblCache = 'cache';
+  static const String _tblWatchlistTv = 'watchlistTv';
 
   Future<Database> _initDb() async {
     final path = await getDatabasesPath();
@@ -35,14 +37,33 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE  $_tblWatchlist (
-        id INTEGER PRIMARY KEY,
-        name TEXT,
+        id INTEGER PRIMARY KEY, 
+        title TEXT,
         overview TEXT,
         posterPath TEXT
       );
     ''');
     await db.execute('''
       CREATE TABLE  $_tblCache (
+        id INTEGER PRIMARY KEY,
+        title TEXT,
+        overview TEXT,
+        posterPath TEXT,
+        category TEXT
+      );
+    ''');
+    await db.execute('''
+      CREATE TABLE  $_tblCacheTv (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        overview TEXT,
+        posterPath TEXT,
+        category TEXT
+      );
+    ''');
+
+    await db.execute('''
+      CREATE TABLE  $_tblWatchlistTv (
         id INTEGER PRIMARY KEY,
         name TEXT,
         overview TEXT,
@@ -114,7 +135,7 @@ class DatabaseHelper {
 
   Future<int> insertWatchlistTv(TvTable tv) async {
     final db = await database;
-    return await db!.insert(_tblWatchlist, tv.toJson());
+    return await db!.insert(_tblWatchlistTv, tv.toJson());
   }
 
   Future<int> removeWatchlist(MovieTable movie) async {
@@ -129,7 +150,7 @@ class DatabaseHelper {
   Future<int> removeWatchlistTv(TvTable tv) async {
     final db = await database;
     return await db!.delete(
-      _tblWatchlist,
+      _tblWatchlistTv,
       where: 'id = ?',
       whereArgs: [tv.id],
     );
@@ -153,7 +174,7 @@ class DatabaseHelper {
   Future<Map<String, dynamic>?> getMovieByIdTv(int id) async {
     final db = await database;
     final results = await db!.query(
-      _tblWatchlist,
+      _tblWatchlistTv,
       where: 'id = ?',
       whereArgs: [id],
     );
@@ -174,7 +195,7 @@ class DatabaseHelper {
 
   Future<List<Map<String, dynamic>>> getWatchlistTv() async {
     final db = await database;
-    final List<Map<String, dynamic>> results = await db!.query(_tblWatchlist);
+    final List<Map<String, dynamic>> results = await db!.query(_tblWatchlistTv);
 
     return results;
   }

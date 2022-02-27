@@ -6,7 +6,7 @@ class Tv extends Equatable {
     required this.backdropPath,
     required this.genreIds,
     required this.id,
-    required this.originalTitle,
+    // required this.originalTitle,
     required this.overview,
     required this.popularity,
     required this.posterPath,
@@ -15,8 +15,8 @@ class Tv extends Equatable {
     required this.originalName,
     required this.voteAverage,
     required this.voteCount,
-    required this.originCountry,
-    required this.originalLanguage,
+    // required this.originCountry,
+    // required this.originalLanguage,
   });
 
   Tv.watchlist(
@@ -28,7 +28,7 @@ class Tv extends Equatable {
   String? backdropPath;
   List<int>? genreIds;
   int id;
-  String? originalTitle;
+  // String? originalTitle;
   String? overview;
   double? popularity;
   String? posterPath;
@@ -37,7 +37,7 @@ class Tv extends Equatable {
   String? originalName;
   double? voteAverage;
   int? voteCount;
-  List<String>? originCountry;
+  // List<String>? originCountry;
   String? originalLanguage;
 
   @override
@@ -45,7 +45,7 @@ class Tv extends Equatable {
         backdropPath,
         genreIds,
         id,
-        originalTitle,
+        // originalTitle,
         overview,
         popularity,
         posterPath,
@@ -54,7 +54,7 @@ class Tv extends Equatable {
         originalName,
         voteAverage,
         voteCount,
-        originCountry,
+        // originCountry,
         originalLanguage,
       ];
 }

@@ -349,13 +349,13 @@ class MockTvLocalDataSource extends _i1.Mock implements _i20.TvLocalDataSource {
               returnValue: Future<List<_i21.TvTable>>.value(<_i21.TvTable>[]))
           as _i7.Future<List<_i21.TvTable>>);
   @override
-  _i7.Future<void> cacheNowPlayingMovies(List<_i21.TvTable>? tv) =>
-      (super.noSuchMethod(Invocation.method(#cacheNowPlayingMovies, [tv]),
+  _i7.Future<void> cacheNowPlayingTv(List<_i21.TvTable>? tv) =>
+      (super.noSuchMethod(Invocation.method(#cacheNowPlayingTv, [tv]),
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i7.Future<void>);
   @override
-  _i7.Future<List<_i21.TvTable>> getCachedNowPlayingMovies() =>
-      (super.noSuchMethod(Invocation.method(#getCachedNowPlayingMovies, []),
+  _i7.Future<List<_i21.TvTable>> getCachedNowPlayingTv() =>
+      (super.noSuchMethod(Invocation.method(#getCachedNowPlayingTv, []),
               returnValue: Future<List<_i21.TvTable>>.value(<_i21.TvTable>[]))
           as _i7.Future<List<_i21.TvTable>>);
 }
