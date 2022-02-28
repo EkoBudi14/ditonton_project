@@ -48,9 +48,6 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<MovieListNotifier>(),
         ),
         ChangeNotifierProvider(
-          create: (_) => di.locator<TvListNotifier>(),
-        ),
-        ChangeNotifierProvider(
           create: (_) => di.locator<MovieDetailNotifier>(),
         ),
         ChangeNotifierProvider(
@@ -117,7 +114,7 @@ class MyApp extends StatelessWidget {
             case HomeTvPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => HomeTvPage());
             case PopularTvPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => PopularTvPage());
+              return MaterialPageRoute(builder: (_) => PopularTvPage());
             case TopRatedTvPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => TopRatedTvPage());
             case TvDetailPage.ROUTE_NAME:

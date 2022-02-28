@@ -6,9 +6,12 @@ import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
+import 'package:ditonton/presentation/pages/popular_tv_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
+import 'package:ditonton/presentation/pages/search_page_tv.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/common/state_enum.dart';
+import 'package:ditonton/presentation/pages/top_rated_tv_page.dart';
 import 'package:ditonton/presentation/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
@@ -40,7 +43,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchPageTv.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
           )
@@ -71,7 +74,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               _buildSubHeading(
                 title: 'Popular Tv',
                 onTap: () =>
-                    Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, PopularTvPage.ROUTE_NAME),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
@@ -88,7 +91,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               _buildSubHeading(
                 title: 'Top Rated Tv',
                 onTap: () =>
-                    Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, TopRatedTvPage.ROUTE_NAME),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTvState;
