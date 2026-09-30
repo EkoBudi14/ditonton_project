@@ -38,8 +38,10 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
+              decoration: kDrawerHeaderDecoration,
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/circle-g.png'),
+                backgroundColor: kMikadoYellow,
+                backgroundImage: NetworkImage(PROFILE_IMAGE_URL),
               ),
               accountName: Text('Ditonton'),
               accountEmail: Text('ditonton@dicoding.com'),

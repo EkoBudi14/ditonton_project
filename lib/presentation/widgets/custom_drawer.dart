@@ -1,3 +1,4 @@
+import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
 import 'package:ditonton/presentation/pages/home_tv_page.dart';
@@ -40,12 +41,13 @@ class _CustomDrawerState extends State<CustomDrawer>
       child: Column(
         children: [
           UserAccountsDrawerHeader(
+            decoration: kDrawerHeaderDecoration,
             currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://raw.githubusercontent.com/dicodingacademy/assets/main/flutter_expert_academy/dicoding-icon.png'),
+              backgroundColor: kMikadoYellow,
+              backgroundImage: NetworkImage(PROFILE_IMAGE_URL),
             ),
             accountName: Text('Ditonton'),
-            accountEmail: Text('ditonton@dicoding.com'),
+            accountEmail: Text('dintonton@gamil.com'),
           ),
           ListTile(
             leading: Icon(Icons.tv),
